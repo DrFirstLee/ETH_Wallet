@@ -60,38 +60,49 @@
 
 <link type="text/css" href="/static/assets/vendor/notyf/notyf.min.css" rel="stylesheet">
 <link type="text/css" href="/static/assets/css/volt.css" rel="stylesheet">
-    
-<style>
-    p, h2{
-        text-align: center;
-        align-items: center;
-    }
-</style>
 
 <!-- Specific Page JS goes HERE  -->    
 {% block stylesheets %}{% endblock stylesheets %}
 
-</head>
-<body>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
 
-    {% include 'includes/sidebar.html' %}
-    
-    <main class="content">
+    </div>
+                
+    <div class="row">
+        <div class="col-12 col-xl-8">
+            <div class="card card-body border-0 shadow mb-4">
+                <h2 class="h5 mb-4">Block information</h2>
+                <form>
+                    {% for e in trans: %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="first_name">From:</label>
+                                {{e['from']}}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="last_name">To:</label>
+                                {{e['to']}}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div>
+                                <label for="last_name">Value:</label>
+                                {{e['value']}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </form>
+            </div>
 
-      {% include 'includes/navigation.html' %}
-
-      {% block content %}{% endblock content %} 
-
-<!--       {% include 'includes/settings-box.html' %} -->
-
-      {% include 'includes/footer.html' %}
-
-    </main>
-
-  {% include 'includes/scripts.html' %}
-    
-  <!-- Specific Page JS goes HERE  -->
-  {% block javascripts %}{% endblock javascripts %}  
       
-</body>
-</html>
+        </div>
+    </div>
+
+  
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

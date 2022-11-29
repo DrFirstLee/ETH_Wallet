@@ -39,7 +39,7 @@
         </div> -->
     </div>
     <div class="row">
-         <div class="col-12 col-sm-6 col-xl-4 mb-4">
+         <div class="col-12 col-sm-6 col-xl-6 mb-3">
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="row d-block d-xl-flex align-items-center">
@@ -47,30 +47,19 @@
                             <div class="icon-shape icon-shape-primary rounded me-4 me-sm-0">
                                 <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
                             </div>
-                            <div class="d-sm-none">
-                                <h2 class="h5">Total Wallets</h2>
-                                <h3 class="fw-extrabold mb-1">{{state['total_wallets']}}</h3>
-                            </div>
                         </div>
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
-                                <h2 class="h6 text-gray-400 mb-0">Total Wallets</h2>
+                                <h2 class="h6 text-gray-400 mb-0">Total D.Wallets</h2>
                                 <h3 class="fw-extrabold mb-2">{{state['total_wallets']}}</h3>
                             </div>
-<!--                             <small class="d-flex align-items-center text-gray-500">
-                                Feb 1 - Apr 1,  
-                                <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path></svg>
-                                USA
-                            </small> 
-                            <div class="small d-flex mt-1">                               
-                                <div>Since last month <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg><span class="text-success fw-bolder">22%</span></div>
-                            </div> -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-xl-4 mb-4">
+        <div class="col-12 col-sm-6 col-xl-6 mb-4">
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <div class="row d-block d-xl-flex align-items-center">
@@ -78,15 +67,11 @@
                             <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
                                 <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
                             </div>
-                            <div class="d-sm-none">
-                                <h2 class="fw-extrabold h5">Total Liquidity</h2>
-                                <h3 class="mb-1">{{state['total_points']}} ETH</h3>
-                            </div>
                         </div>
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
-                                <h2 class="h6 text-gray-400 mb-0">Total Liquidity</h2>
-                                <h3 class="fw-extrabold mb-2">{{state['total_points']}} ETH</h3>
+                                <h2 class="h6 text-gray-400 mb-0">Total D.Points</h2>
+                                <h3 class="fw-extrabold mb-2">{{state['total_points']}}</h3>
                             </div>
                         </div>
                     </div>
@@ -101,74 +86,123 @@
                             <div class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0">
                                 <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                             </div>
-                            <div class="d-sm-none">
-                                <h2 class="fw-extrabold h5"> Node Counts</h2>
-                                <h3 class="mb-1">5</h3>
-                            </div>
                         </div>
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
-                                <h2 class="h6 text-gray-400 mb-0"> Node Counts</h2>
-                                <h3 class="fw-extrabold mb-2">5</h3>
+                                <h2 class="h6 text-gray-400 mb-0">My D.Points</h2>
+                                <h3 class="fw-extrabold mb-2">{{state['my_points']}}</h3>
 
-                            </div>
-                             <small class="text-gray-500">
-                                Feb 1 - Apr 1
-                            </small> 
-                           <div class="small d-flex mt-1">                               
-                                <div>Since last month <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg><span class="text-success fw-bolder">4%</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div> -->
-                <div class="col-12 col-sm-6 col-xl-4 mb-4">
-            <div class="card border-0 shadow">
-                <div class="card-body">
-                    <div class="row d-block d-xl-flex align-items-center">
-                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
-                            <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
-                                <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" clip-rule="evenodd"></path></svg>
-                            </div>
-                            <div class="d-sm-none">
-                                <h2 class="fw-extrabold h5">MY ASSETS</h2>
-                                <h3 class="mb-1">{{state['my_points']}} ETH</h3>
-                            </div>
-                        </div>
-                        <div class="col-12 col-xl-7 px-xl-0">
-                            <div class="d-none d-sm-block">
-                                <h2 class="h6 text-gray-400 mb-0">MY ASSETS</h2>
-                                <h3 class="fw-extrabold mb-2">{{state['my_points']}} ETH </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="col-12 mb-6">
+    </div>
+    <div class="row">
+        <div class="col-12 mb-4">
             <div class="card bg-yellow-100 border-0 shadow">
                 <div class="card-header d-sm-flex flex-row align-items-center flex-0">
                     <div class="d-block mb-3 mb-sm-0">
-                        <div class="fs-5 fw-normal mb-2">Transaction</div>
-                        <h2 class="fs-3 fw-extrabold">$10,567</h2>
-
-                    </div>
-                    <div class="d-flex ms-auto">
-                        <a href="#" class="btn btn-secondary text-dark btn-sm me-2">Month</a>
-                        <a href="#" class="btn btn-dark btn-sm me-3">Week</a>
+                        <h2 class="fs-3 fw-extrabold">
+                            D.Points
+                        </h2>
+                        <div class="fs-5 fw-normal mb-2">데랩 포인트를 주고받아 보세요!</div>
                     </div>
                 </div>
-                <div class="card-body p-2">
-                    <div class="ct-chart-sales-value ct-double-octave ct-series-g"></div>
+                <div class="col-12 col-sm-12 col-xl-12 mb-6 p-3">
+                    <div class="fs-5 fw-normal mb-2">내 포인트 : {{ state['my_points'] }}</div>
+                    <form action="transaction" method="post">
+                        <div class="row">
+                            <div style="width: 100%;">
+                                <input class="form-control" id="target" name="target" type="text" style="margin: 2px; float: left; width: 300px; height: 80px; font-size: 20px;" placeholder="Enter username">
+                                <div style="margin: 5px; float: left; width: 40px; height: 80px;"></div>
+                                
+                                <div id='points_num' style="margin: 2px; float: left; width: 40px; height: 80px; font-size: 50px; text-align: center; line-height: 80px;">0</div>
+                                <input class="form-control" type='button' style="margin: 2px; float: left; width: 60px; height: 80px; font-size: 50px; text-align: center; line-height: 40px;" onclick='count("minus")' value='-'/>
+                                <input class="form-control" type='button' style="margin: 2px; float: left; width: 60px; height: 80px; font-size: 50px; text-align: center; line-height: 40px;" onclick='count("plus")' value='+'/>
+                                <div style="margin: 5px; float: left; width: 40px; height: 80px;"></div>
+                                <div class="btn btn-gray-800 animate-up-2" id="send" name="send" style="width: 100px; height: 80px; font-size: large; margin: 2px; float: left; text-align: center; line-height: 40px;" onclick='check_send({{}})'>Send</div>
+                                
+                                <!-- Modal -->
+                                <div id="modal" class="modal-overlay">
+                                    <div class="modal-window">
+                                        <div class="title">
+                                            <h2 id="modal-title">모달</h2>
+                                        </div>
+                                        <div class="content">
+                                            <p id="modal-content">내용</p>
+                                        </div>
+                                        <button class="ok-area btn btn-gray-800 animate-up-2" id="ok" name="ok" type="submit" >OK</button>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-       
     </div>
-<!--     
+
+    <script>        
+        function count(type)  {
+            // 결과를 표시할 element
+            const resultElement = document.getElementById('points_num');
+
+            // 현재 화면에 표시된 값
+            let number = resultElement.innerText;
+
+            // 더하기/빼기
+            if(type === 'plus') {
+            number = parseInt(number) + 1;
+            }else if(type === 'minus')  {
+                if(number>0) {
+                    number = parseInt(number) - 1;
+                }
+            }
+
+            // 결과 출력
+            resultElement.innerText = number;
+        }
+        
+        // Modal
+        const modal = document.getElementById("modal")
+        
+        function modalOn() {
+            modal.style.display = "flex"
+        }
+        function isModalOn() {
+            return modal.style.display === "flex"
+        }
+        function modalOff() {
+            modal.style.display = "none"
+        }
+        const btnModal = document.getElementById("send")
+        btnModal.addEventListener("click", e => {
+            modalOn()
+        })
+        const okBtn = modal.querySelector(".ok-area")
+        okBtn.addEventListener("click", e => {
+            modalOff()
+        })
+        modal.addEventListener("click", e => {
+            const evTarget = e.target
+            if(evTarget.classList.contains("modal-overlay")) {
+                modalOff()
+            }
+        })
+        window.addEventListener("keyup", e => {
+            if(isModalOn() && e.key === "Escape") {
+                modalOff()
+            }
+        })
+        
+    </script>
+        
+    
+ 
 
 {% endblock content %}
 

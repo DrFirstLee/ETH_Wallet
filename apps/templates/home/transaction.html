@@ -1,0 +1,180 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="py-4">
+        <h1 class="fs-3 fw-extrabold">
+            D.Points
+        </h1>
+    </div>
+
+    <div class="py-2">
+        <div class="media d-flex align-items-center">
+          <img class="avatar rounded-circle" alt="Image placeholder" src="/static/assets/img/team/profile-picture-3.jpg">
+          <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
+            <span class="mb-0 font-small fw-bold text-gray-900">
+              <strong>{{ current_user.username }}</strong>
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 col-sm-4 col-xl-4 mb-4">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <h6 class="text-gray-400" style="float: left;">사용 가능 포인트</h6>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h3 class="mb-0 fw-extrabold" style="float: right;">{{state['my_points']}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 col-sm-4 col-xl-4 mb-4">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <h6 class="text-gray-400" style="float: left;">나랑 연결된 팀원</h6>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h3 class="mb-0 fw-extrabold" style="float: right;">{{state['total_wallets']-1}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 col-sm-4 col-xl-4 mb-4">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="row d-block d-xl-flex align-items-center">
+                        <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                            <h6 class="text-gray-400" style="float: left;">풀려있는 포인트</h6>
+                        </div>
+                        <div class="col-12 col-xl-7 px-xl-0">
+                            <div class="d-none d-sm-block">
+                                <h3 class="mb-0 fw-extrabold" style="float: right;">{{state['total_points']}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-2">
+        <div class="media d-flex align-items-center">
+          <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
+            <span class="mb-0 font-small fw-bold text-gray-900">
+              <strong>팀원끼리 포인트 선물하기</strong>
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8 mb-4">
+            <div class="card bg-yellow-100 border-0 shadow">
+                <form action="transaction" method="post">
+                    <div class="col-6 col-sm-6 col-xl-6 mb-0 p-3">
+                    
+                        <div class="mb-4">
+                            <input type="hidden" id="from_username" name="from_username" value="{{current_user.username}}">
+                            <input type="hidden" id="from_wallet" name="from_wallet" value="{{current_user.wallet}}">
+                            <div class="fs-7 fw-normal mb-2">선물할 팀원</div>                            
+                            <select class="form-select mb-0" id="to_username" name="to_username" aria-label="to_username select example">
+                                <option selected>이름 선택</option>
+                                {% for e in state['total_users']: %}
+                                    {% if e != current_user.username %}
+                                        <option value="{{e}}">{{e}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+
+                        </div>
+                        
+                        <div class="mb-2">
+                            <div class="fs-7 fw-normal mb-2">선물할 포인트양 
+                                <span class="text-info font-small">
+                                    <strong>(잔여 포인트: {{ state['my_points'] }} P)</strong>
+                                </span>
+                            </div>
+                            <input class="form-control" id="to_points" name="to_points" type="text" placeholder="숫자 입력">
+                            
+                        </div>
+                        
+                        <div class="mb-0">
+                            <div class="ok-area btn btn-gray-800 animate-up-2" id="10p" name="10p">10P</div>
+                            <div class="ok-area btn btn-gray-800 animate-up-2" id="5p" name="5p">5P</div>
+                            <div class="ok-area btn btn-gray-800 animate-up-2" id="1p" name="1p">1P</div>
+                            <div class="ok-area btn btn-gray-800 animate-up-2" id="clear" name="clear">Clear</div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-12 col-sm-12 col-xl-12 mb-0 p-3">
+                        <button class="ok-area col-12 btn btn-gray-800 animate-up-2" id="send" name="send" type="submit">
+                            보내기
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>        
+        const tenButton = document.getElementById('10p');
+        const fiveButton = document.getElementById('5p');
+        const oneButton = document.getElementById('1p');
+        const clearButton = document.getElementById('clear');
+        
+        const inputField = document.getElementById('to_points');
+
+        tenButton.addEventListener('click', event => {
+          event.preventDefault();
+          const currentValue = Number(inputField.value) || 0;
+          inputField.value = currentValue + 10;
+        });
+
+        fiveButton.addEventListener('click', event => {
+          event.preventDefault();
+          const currentValue = Number(inputField.value) || 0;
+          inputField.value = currentValue + 5;
+        });
+        
+        oneButton.addEventListener('click', event => {
+          event.preventDefault();
+          const currentValue = Number(inputField.value) || 0;
+          inputField.value = currentValue + 1;
+        });
+        
+        clearButton.addEventListener('click', event => {
+          event.preventDefault();
+          const currentValue = Number(inputField.value) || 0;
+          inputField.value = '';
+        });
+        
+    </script>
+
+    
+        
+    
+ 
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

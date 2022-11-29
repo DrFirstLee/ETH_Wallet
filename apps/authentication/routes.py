@@ -17,6 +17,11 @@ from apps.authentication.models import Users
 
 from apps.authentication.util import verify_pass
 
+from web3 import Web3
+
+BLOCKCHAIN_ADR = "http://175.45.201.73:8505"
+w3 = Web3(Web3.HTTPProvider(BLOCKCHAIN_ADR))
+
 
 @blueprint.route('/')
 def route_default():
@@ -28,6 +33,10 @@ def route_default():
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm(request.form)
+    
+    print(login_form)
+    print(login_form.username)
+    
     if 'login' in request.form:
 
         # read form data
@@ -77,16 +86,26 @@ def register():
                                    msg='Email already registered',
                                    success=False,
                                    form=create_account_form)
+        
+        # Transfrom request.form to user input data
+        user_data = request.form.to_dict()
+        
+        # create wallet address
+        wallet = w3.parity.personal.new_account(user_data['username'])
+        user_data['wallet'] = wallet
+        print(user_data)
 
         # else we can create the user
-        user = Users(**request.form)
+        user = Users(**user_data)
         db.session.add(user)
         db.session.commit()
-
-        return render_template('accounts/register.html',
-                               msg='User created please <a href="/login">login</a>',
-                               success=True,
-                               form=create_account_form)
+        
+        return redirect(url_for('authentication_blueprint.login'))
+        
+#         return render_template('accounts/register.html',
+#                                msg='User created please <a href="/login">login</a>',
+#                                success=True,
+#                                form=create_account_form)
 
     else:
         return render_template('accounts/register.html', form=create_account_form)

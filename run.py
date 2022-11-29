@@ -34,4 +34,6 @@ if DEBUG:
     app.logger.info('ASSETS_ROOT = ' + app_config.ASSETS_ROOT )
 
 if __name__ == "__main__":
+    print("copied")
     app.run()
+    #app.run(debug=True, host= "175.45.201.73")
